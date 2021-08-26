@@ -15,7 +15,7 @@
 #include <memory>
 
 void usage(std::string programName) {
-    std::cerr << "Usage: " << programName << " [-t rotation_seconds] [-a aspect('l','p','a')] [-o background_opacity(0..255)] [-b blur_radius] -p image_folder [-r] [-s] [-v] [--verbose] [--stretch]" << std::endl;
+    std::cerr << "Usage: " << programName << " [-t rotation_seconds] [T transition_seconds] [-a aspect('l','p','a')] [-o background_opacity(0..255)] [-b blur_radius] -p image_folder [-r] [-s] [-v] [--verbose] [--stretch]" << std::endl;
 }
 
 int main(int argc, char *argv[])
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     {"stretch", no_argument,       &stretchInt, 1},
   };
   int option_index = 0;
-  while ((opt = getopt_long(argc, argv, "b:p:t:o:O:a:rsSv", long_options, &option_index)) != -1) {
+  while ((opt = getopt_long(argc, argv, "b:p:t:T:o:O:a:rsSv", long_options, &option_index)) != -1) {
     switch (opt) {
       case 0:
           /* If this option set a flag, do nothing else now. */
@@ -65,6 +65,9 @@ int main(int argc, char *argv[])
         break;
       case 't':
         rotationSeconds = atoi(optarg);
+        break;
+      case 'T':
+	w.setTransitionTime(atoi(optarg));
         break;
       case 'b':
         w.setBlurRadius(atoi(optarg));
