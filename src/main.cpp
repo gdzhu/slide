@@ -16,7 +16,7 @@
 #include <memory>
 
 void usage(std::string programName) {
-    std::cerr << "Usage: " << programName << " [-t rotation_seconds] [T transition_seconds] [-a aspect('l','p','a')] [-o background_opacity(0..255)] [-b blur_radius] -p image_folder [-r] [-s] [-v] [--verbose] [--stretch]" << std::endl;
+    std::cerr << "Usage: " << programName << " [-t rotation_seconds] [-T transition_seconds] [-c/--overlay-color #rrggbb] [-a aspect('l','p','a')] [-o background_opacity(0..255)] [-b blur_radius] -p image_folder [-r] [-O overlay_string] [-s] [-S] [-v] [--verbose] [--stretch]" << std::endl;
 }
 
 int main(int argc, char *argv[])
