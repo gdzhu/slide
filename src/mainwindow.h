@@ -30,6 +30,7 @@ public:
     void setAspect(char aspectIn);
     void setDebugMode(bool debugModeIn) {debugMode = debugModeIn;}
     void setFitAspectAxisToWindow(bool fitAspectAxisToWindowIn) { fitAspectAxisToWindow = fitAspectAxisToWindowIn; }
+    void setOverlayHexRGB(QString overlayHexRGB);
 private:
     Ui::MainWindow *ui;
 
@@ -40,8 +41,9 @@ private:
     char aspect = 'a';
     bool debugMode = false;
     bool fitAspectAxisToWindow = false;
+    QString overlayHexRGB;
 
-    Overlay* overlay;
+    Overlay* overlay = NULL;
 
     void drawText(QPixmap& image, int margin, int fontsize, QString text, int alignment);
 

@@ -218,7 +218,7 @@ void MainWindow::updateImage()
 void MainWindow::drawText(QPixmap& image, int margin, int fontsize, QString text, int alignment) {
   //std::cout << "text: " << text.toStdString()  << " margin: " << margin << " fontsize: " << fontsize<< std::endl;
   QPainter pt(&image);
-  pt.setPen(QPen(Qt::white));
+  pt.setPen(QPen(QColor(overlayHexRGB)));
   pt.setFont(QFont("Sans", fontsize, QFont::Bold));
   QRect marginRect = image.rect().adjusted(
       margin,
@@ -341,6 +341,10 @@ void MainWindow::setBackgroundOpacity(unsigned int backgroundOpacity)
 void MainWindow::setTransitionTime(unsigned int transitionSeconds)
 {
     this->transitionSeconds = transitionSeconds;
+
+void MainWindow::setOverlayHexRGB(QString overlayHexRGB)
+{
+    this->overlayHexRGB = overlayHexRGB;
 }
 
 void MainWindow::warn(std::string text)
