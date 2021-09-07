@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
         rotationSeconds = atoi(optarg);
         break;
       case 'T':
-	w.setTransitionTime(atoi(optarg));
+	  w.setTransitionTime(atoi(optarg));
         break;
       case 'b':
         w.setBlurRadius(atoi(optarg));
